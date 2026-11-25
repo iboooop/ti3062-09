@@ -1,0 +1,69 @@
+/* =========================================================
+   temas.css — paletas intercambiables
+   Cada tema solo define los colores base; el resto se deriva
+   automáticamente en aero.css.
+   Se activa con <html data-tema="nombre">.
+   "playa" son los colores base definidos en aero.css (:root).
+   ========================================================= */
+
+/* 1 · Nube rosada  (ffffff · e8ebf0 · dde7f3 · ffe0f0 · fef1f8 · dfe0e2 · a2d0ea · e5d8ea) */
+[data-tema="nube"] {
+  --p: #ffcde5;      /* ffe0f0 un poco más intenso para que se note en botones */
+  --s: #a2d0ea;
+  --t: #c9dcef;      /* entre dde7f3 y a2d0ea */
+  --q: #e5d8ea;
+  --raya: #fef1f8;
+  --base1: #dde7f3;
+  --base2: #ffffff;
+  --texto: #5d6577;
+}
+
+/* 2 · Bosque musgo  (f6f6f6 · fbebf8 · 8c9d8d · d5dcd5 · 5a6c5e · bfd0bd · c4bdc4 · 819b7e · 4b5b50 · 828282) */
+[data-tema="musgo"] {
+  --p: #819b7e;
+  --s: #8c9d8d;
+  --t: #bfd0bd;
+  --q: #c4bdc4;
+  --raya: #fbebf8;
+  --base1: #d5dcd5;
+  --base2: #f6f6f6;
+  --texto: #4b5b50;
+  --oscuro: #2a332c;
+}
+
+/* 3 · Agua menta  (b7dad4 · a7cfc7 · c0ced9 · dbe2e8 · ceece2 · b7d1e8 · e9d5e0 · a2c3e4 · ffffff · 8fb4de) */
+[data-tema="agua"] {
+  --p: #e3c6d6;      /* e9d5e0 un poco más intenso */
+  --s: #8fb4de;
+  --t: #a7cfc7;
+  --q: #c0ced9;
+  --raya: #ceece2;
+  --base1: #b7d1e8;
+  --base2: #ffffff;
+  --texto: #4c5f77;
+}
+
+/* 4 · Cielo caramelo  (f5f5f7 · fbeaf2 · d2e8f6 · c1d9f3 · a9cdef · e4e9ed · cbc7c8 · abbacd · e6cdae · 8e7771) */
+[data-tema="caramelo"] {
+  --p: #f4cfe0;      /* fbeaf2 un poco más intenso */
+  --s: #a9cdef;
+  --t: #e6cdae;
+  --q: #abbacd;
+  --raya: #fbeaf2;
+  --base1: #d2e8f6;
+  --base2: #f5f5f7;
+  --texto: #8e7771;
+  --oscuro: #3b2b27;
+}
+
+/* 5 · Brisa (tema por defecto): lo etéreo de "nube" con un toque menta */
+[data-tema="brisa"] {
+  --p: #f6c8de;      /* rosa algodón */
+  --s: #a2cae8;      /* celeste entre a2d0ea y a2c3e4 */
+  --t: #b3d7d3;      /* menta suave, un poco más clara que a7cfc7 */
+  --q: #e5d8ea;      /* lila compartido */
+  --raya: #fdeef6;
+  --base1: #d8e7f5;
+  --base2: #ffffff;
+  --texto: #656779;  /* gris azulado con un toque rosado */
+}

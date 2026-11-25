@@ -1,0 +1,7 @@
+Pon aquí los archivos del cursor (descargados de cursors-4u):
+
+  conejito.cur  (o conejito.png, máx. 32x32 px)   -> cursor normal
+  conejito-link.cur (o .png)                        -> cursor sobre botones/enlaces (opcional)
+
+Usa el formato .cur o .png. Los .ani (animados) no funcionan en Chrome/Edge/Firefox.
+Recuerda dar crédito al autor en la página si el sitio lo pide.

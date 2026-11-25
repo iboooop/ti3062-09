@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="brisa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✦ Nimbus Vault · consola de proyecto ✦</title>
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/aero.css">
+  <link rel="stylesheet" href="css/temas.css">
+</head>
+<body>
+
+  <!-- burbujas flotando (las genera js/ui.js) -->
+  <div id="capa-burbujas" aria-hidden="true"></div>
+
+  <div class="sitio">
+
+    <!-- ===== CABECERA ===== -->
+    <header class="cabecera">
+      <svg class="espiral izq" viewBox="0 0 200 130" aria-hidden="true">
+        <path d="M8 125 C8 70 8 35 40 17 C62 5 95 8 125 11 C150 13 165 10 178 16
+                 M40 17 C24 32 32 58 54 53 C70 49 68 31 56 31 C47 31 45 42 53 43
+                 M125 11 C143 27 166 27 169 13 C171 2 155 0 152 9 C150 16 159 18 161 12
+                 M8 85 C24 90 35 78 30 68 C26 60 16 63 19 70
+                 M70 8 C80 18 96 16 98 6"/>
+      </svg>
+      <svg class="espiral der" viewBox="0 0 200 130" aria-hidden="true">
+        <path d="M8 125 C8 70 8 35 40 17 C62 5 95 8 125 11 C150 13 165 10 178 16
+                 M40 17 C24 32 32 58 54 53 C70 49 68 31 56 31 C47 31 45 42 53 43
+                 M125 11 C143 27 166 27 169 13 C171 2 155 0 152 9 C150 16 159 18 161 12
+                 M8 85 C24 90 35 78 30 68 C26 60 16 63 19 70
+                 M70 8 C80 18 96 16 98 6"/>
+      </svg>
+      <span class="kaomoji k1">𓏲 ๋࣭ ࣪ ˖ ✦</span>
+      <span class="kaomoji k2">⋆｡‧˚ʚ ☁ ɞ˚‧｡⋆</span>
+      <span class="kaomoji k3">✧˖°. ⋆ ⊹ ࣪ ˖</span>
+      <span class="kaomoji k4">˖ ࣪ ⊹ ⋆ .°˖✧</span>
+            <div class="sub">✧ PLANIFICACIÓN · SEGURIDAD · GOBIERNO DE INFRAESTRUCTURA CLOUD ✧</div>
+      <h1 class="titulo-cromo">Nimbus Vault</h1>
+      <span class="pildora">☁ app web pública ✦ base de datos aislada ✦ acceso con MFA</span>
+    </header>
+
+    <!-- ===== NAVEGACIÓN ===== -->
+    <nav class="nav" id="nav">
+      <button class="activo" data-modulo="resumen">✦ Inicio</button>
+      <button data-modulo="planificacion">Plan de trabajo</button>
+      <button data-modulo="problematica">Contexto</button>
+      <button data-modulo="cloud">Proveedores</button>
+      <button data-modulo="nist">Controles</button>
+      <button data-modulo="bitacora">Bitácora</button>
+      <button data-modulo="validacion">Pruebas</button>
+      <button data-modulo="documento">✦ Informe</button>
+    </nav>
+
+    <div class="layout">
+
+      <!-- ===== COLUMNA IZQUIERDA ===== -->
+      <aside class="columna lateral">
+        <section class="ventana rosa">
+          <div class="ventana-titulo">responsable <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+          <div class="ventana-cuerpo" style="text-align:center">
+            <div class="avatar orbe" title="Nimbus Vault">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <clipPath id="c-orbe"><circle cx="50" cy="50" r="47"/></clipPath>
+                  <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--s-4)"/><stop offset=".45" stop-color="var(--s)"/><stop offset=".62" stop-color="var(--s-2)"/>
+                  </linearGradient>
+                  <linearGradient id="g-agua" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--t-2)"/><stop offset=".4" stop-color="var(--t)"/><stop offset="1" stop-color="var(--t-4)"/>
+                  </linearGradient>
+                  <linearGradient id="g-nube2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#fff"/><stop offset="1" stop-color="var(--s-1)"/>
+                  </linearGradient>
+                  <linearGradient id="g-candado2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--p-2)"/><stop offset=".5" stop-color="var(--p)"/><stop offset=".52" stop-color="var(--p-4)"/><stop offset="1" stop-color="var(--p)"/>
+                  </linearGradient>
+                  <radialGradient id="g-brillo" cx=".5" cy="0" r=".9">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <g clip-path="url(#c-orbe)">
+                  <!-- cielo y agua -->
+                  <rect width="100" height="100" fill="url(#g-cielo)"/>
+                  <path d="M0 64 Q25 58 50 64 T100 64 V100 H0Z" fill="url(#g-agua)"/>
+                  <path d="M8 72 Q20 69 32 72 M58 78 Q70 75 84 78 M30 86 Q42 83 54 86" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".75"/>
+                  <!-- nube con candado -->
+                  <path d="M30 62 Q20 62 20 54 Q20 46 29 45.5 Q30 35 41 34.5 Q47 27 56 29.5 Q65 32 66 42 Q76 42.5 76.5 52 Q77 62 67 62 Z" fill="url(#g-nube2)" stroke="var(--s-4)" stroke-width="1.4"/>
+                  <ellipse cx="42" cy="40" rx="7" ry="3" fill="#fff"/>
+                  <path d="M44 53 V48.5 a5.5 5.5 0 0 1 11 0 V53" fill="none" stroke="var(--s-4)" stroke-width="3" stroke-linecap="round"/>
+                  <rect x="40.5" y="52" width="18" height="14" rx="4" fill="url(#g-candado2)" stroke="var(--p-4)" stroke-width="1.2"/>
+                  <circle cx="49.5" cy="58" r="2" fill="#fff"/><path d="M49.5 59 v3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                  <!-- burbujas -->
+                  <circle cx="80" cy="30" r="5" fill="none" stroke="#fff" stroke-width="1.2" opacity=".9"/>
+                  <circle cx="78.5" cy="28.5" r="1.3" fill="#fff"/>
+                  <circle cx="22" cy="30" r="3" fill="none" stroke="#fff" stroke-width="1" opacity=".85"/>
+                  <circle cx="86" cy="45" r="2.2" fill="none" stroke="#fff" stroke-width="1" opacity=".8"/>
+                  <!-- brillo de vidrio -->
+                  <ellipse cx="50" cy="24" rx="38" ry="20" fill="url(#g-brillo)"/>
+                </g>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#fff" stroke-width="2"/>
+                <circle cx="50" cy="50" r="48.5" fill="none" stroke="var(--s-4)" stroke-width="1" opacity=".5"/>
+              </svg>
+            </div>
+            <div class="pixel nombre">Taís Cruz</div>
+            <div class="pixel suave">estudiante TI · N° 09</div>
+          </div>
+        </section>
+
+        <section class="ventana">
+          <div class="ventana-titulo">estado <div class="controles"><span>─</span><span>×</span></div></div>
+          <div class="ventana-cuerpo">
+            <!-- Cada fila cambia con NimbusEstado.set("clave", "estado").
+                 Estados: ok · alerta · error · off -->
+            <ul class="lista-pixel lista-estado">
+              <li data-clave="consola" data-estado="ok">
+                <img class="led" src="img/estado/verde.gif" alt="" width="14" height="14">
+                <span class="texto">consola en línea</span>
+              </li>
+
+              <li data-clave="web" data-estado="ok">
+                <svg class="icono" viewBox="0 0 24 24" aria-hidden="true">
+                  <defs><linearGradient id="gi-web" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--i1)"/><stop offset=".55" stop-color="var(--i2)"/><stop offset="1" stop-color="var(--i3)"/></linearGradient></defs>
+                  <path d="M6 18.5Q2 18.5 2 15Q2 11.8 5.4 11.6Q5.8 7.6 9.8 7.3Q12 4.4 15.4 5.6Q18.6 6.6 18.6 10.2Q22 10.6 22 14.4Q22 18.5 18 18.5Z" fill="url(#gi-web)" stroke="var(--i3)" stroke-width="1.1"/>
+                  <ellipse cx="10" cy="10.2" rx="3.4" ry="1.5" fill="#fff" opacity=".85"/>
+                  <circle class="pulso" cx="12" cy="14.6" r="1.6" fill="#fff"/>
+                </svg>
+                <span class="texto">web-09: <b>activa</b></span>
+              </li>
+
+              <li data-clave="bd" data-estado="ok">
+                <svg class="icono" viewBox="0 0 24 24" aria-hidden="true">
+                  <defs><linearGradient id="gi-bd" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--i1)"/><stop offset=".5" stop-color="var(--i2)"/><stop offset=".52" stop-color="var(--i3)"/><stop offset="1" stop-color="var(--i2)"/></linearGradient></defs>
+                  <path class="grillete" d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="var(--i3)" stroke-width="2.4" stroke-linecap="round"/>
+                  <rect x="5" y="10.5" width="14" height="11" rx="3.2" fill="url(#gi-bd)" stroke="var(--i3)" stroke-width="1"/>
+                  <rect x="6.5" y="11.6" width="11" height="3.6" rx="1.8" fill="#fff" opacity=".6"/>
+                  <circle cx="12" cy="16.4" r="1.4" fill="#fff"/><path d="M12 17v2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span class="texto">bd-09: <b>privada</b></span>
+              </li>
+
+              <li data-clave="respaldo" data-estado="ok">
+                <svg class="icono" viewBox="0 0 24 24" aria-hidden="true">
+                  <defs><linearGradient id="gi-resp" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--i1)"/><stop offset=".55" stop-color="var(--i2)"/><stop offset="1" stop-color="var(--i3)"/></linearGradient></defs>
+                  <path d="M4.5 3.5h12.3l3.7 3.7v12.3a1.5 1.5 0 0 1-1.5 1.5h-13a1.5 1.5 0 0 1-1.5-1.5v-14.5a1.5 1.5 0 0 1 1.5-1.5z" fill="url(#gi-resp)" stroke="var(--i3)" stroke-width="1"/>
+                  <rect x="7.2" y="3.5" width="9" height="5.6" rx=".8" fill="#eef3f8" stroke="var(--i3)" stroke-width=".7"/>
+                  <rect x="13.2" y="4.4" width="1.8" height="3.6" rx=".4" fill="var(--i3)"/>
+                  <rect x="6.5" y="12.4" width="11" height="7" rx="1.2" fill="#fff"/>
+                  <path class="marca-ok" d="M9.4 15.9l1.8 1.8 3.4-3.4" fill="none" stroke="var(--i3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="marca-alerta" d="M12 13.9v2.6M12 18.2v.1" stroke="var(--i3)" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span class="texto">último respaldo: hoy</span>
+              </li>
+
+              <li data-clave="cambios" data-estado="ok">
+                <svg class="icono" viewBox="0 0 24 24" aria-hidden="true">
+                  <defs><radialGradient id="gi-camb" cx=".35" cy=".3" r=".8">
+                    <stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="var(--i1)"/><stop offset=".8" stop-color="var(--i2)"/><stop offset="1" stop-color="var(--i3)"/></radialGradient></defs>
+                  <circle cx="12" cy="12" r="9.3" fill="url(#gi-camb)" stroke="var(--i3)" stroke-width="1"/>
+                  <ellipse cx="10" cy="7.4" rx="4.4" ry="2" fill="#fff" opacity=".8"/>
+                  <path class="marca-ok" d="M8 12.4l2.7 2.7 5.3-5.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <g class="marca-alerta" fill="#fff"><circle cx="8" cy="13" r="1.4"/><circle cx="12" cy="13" r="1.4"/><circle cx="16" cy="13" r="1.4"/></g>
+                </svg>
+                <span class="texto">cambios guardados</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="ventana menta">
+          <div class="ventana-titulo">hitos <div class="controles"><span>×</span></div></div>
+          <div class="ventana-cuerpo">
+            <ul class="lista-pixel">
+              <li>H1 · diseño de la solución ✓</li>
+              <li>H2 · despliegue en AWS ✧</li>
+              <li>H3 · pruebas y cierre ○</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+
+      <!-- ===== CONTENIDO CENTRAL ===== -->
+      <main class="columna">
+
+        <div class="cinta"><span>✦ bienvenida a Nimbus Vault ✦ respaldo diario de la base de datos: activo ♡ subred privada sin salida a Internet ✧ acceso SSH solo con llave + TOTP ☁ exporta tu proyecto en JSON cuando quieras ✦</span></div>
+
+        <!-- MÓDULO: RESUMEN -->
+        <section class="modulo visible" id="resumen">
+          <div class="ventana">
+            <div class="ventana-titulo">panel_de_resumen.exe <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Estado del proyecto</h2>
+              <h3>avance general</h3>
+              <div class="progreso"><div style="width:62%"></div></div>
+              <p class="pixel suave" style="text-align:right;margin:4px 0 12px">62% completado</p>
+
+              <div class="kpis">
+                <div class="kpi"><div class="valor">7/12</div><div class="etiqueta">tareas completadas</div></div>
+                <div class="kpi menta"><div class="valor">4</div><div class="etiqueta">controles implementados</div></div>
+                <div class="kpi rosa"><div class="valor">3·1</div><div class="etiqueta">pruebas ok · fallidas</div></div>
+                <div class="kpi lila"><div class="valor">3</div><div class="etiqueta">riesgos residuales</div></div>
+              </div>
+
+              <hr class="encaje">
+              <h3>tareas por estado</h3>
+              <p>
+                <span class="estado completada">completada ×7</span>
+                <span class="estado en-curso">en curso ×3</span>
+                <span class="estado pendiente">pendiente ×1</span>
+                <span class="estado bloqueada">bloqueada ×1</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: PLANIFICACIÓN -->
+        <section class="modulo" id="planificacion">
+          <div class="ventana">
+            <div class="ventana-titulo">planificacion.exe <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Plan de trabajo</h2>
+              <div class="tabla-scroll">
+                <table class="tabla-aero">
+                  <thead><tr><th>ID</th><th>Tarea</th><th>Responsable</th><th>Inicio</th><th>Término</th><th>Depende</th><th>Estado</th></tr></thead>
+                  <tbody>
+                    <tr><td>T01</td><td>Crear VPC-09 y subredes</td><td>Tú <div class="rol">administración</div></td><td>01/12</td><td>02/12</td><td>—</td><td><span class="estado completada">completada</span></td></tr>
+                    <tr><td>T02</td><td>Configurar Security Groups</td><td>Tú <div class="rol">administración</div></td><td>02/12</td><td>03/12</td><td>T01</td><td><span class="estado en-curso">en curso</span></td></tr>
+                    <tr><td>T03</td><td>Formulario de la app del caso</td><td>Tú <div class="rol">desarrollo</div></td><td>03/12</td><td>05/12</td><td>T02</td><td><span class="estado pendiente">pendiente</span></td></tr>
+                    <tr><td>T04</td><td>Reglas auditd</td><td>Tú <div class="rol">auditoría</div></td><td>05/12</td><td>06/12</td><td>T03</td><td><span class="estado bloqueada">bloqueada</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <hr class="encaje">
+              <h3>+ nueva tarea</h3>
+              <form class="formulario" onsubmit="return false">
+                <div class="campo ancho"><label>nombre de la tarea</label><input placeholder="ej. Configurar MFA TOTP"></div>
+                <div class="campo"><label>rol responsable</label><select><option>administración</option><option>desarrollo</option><option>auditoría</option></select></div>
+                <div class="campo"><label>inicio</label><input type="date"></div>
+                <div class="campo"><label>término</label><input type="date"></div>
+                <div class="campo"><label>estado</label><select><option>pendiente</option><option>en curso</option><option>completada</option><option>bloqueada</option></select></div>
+                <div class="campo ancho" style="align-items:flex-end"><button class="btn-gel aqua">✦ guardar tarea</button></div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: PROBLEMÁTICA -->
+        <section class="modulo" id="problematica">
+          <div class="ventana rosa">
+            <div class="ventana-titulo">problematica.txt <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Contexto y requerimientos</h2>
+              <form class="formulario" onsubmit="return false">
+                <div class="campo ancho"><label>contexto</label><textarea placeholder="Describe la organización y su problema…"></textarea></div>
+                <div class="campo"><label>actores</label><input placeholder="clientes, administrador…"></div>
+                <div class="campo"><label>procesos afectados</label><input placeholder="registro, consultas…"></div>
+              </form>
+              <h3>requerimientos</h3>
+              <table class="tabla-aero">
+                <thead><tr><th>ID</th><th>Descripción</th><th>Tipo</th></tr></thead>
+                <tbody>
+                  <tr><td>RF-01</td><td>El sistema permite registrar…</td><td>funcional</td></tr>
+                  <tr><td>RNF-01</td><td>La BD solo es accesible desde web-09</td><td>seguridad</td></tr>
+                  <tr><td>RNF-02</td><td>Respaldo diario automatizado</td><td>disponibilidad</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: CLOUD -->
+        <section class="modulo" id="cloud">
+          <div class="ventana">
+            <div class="ventana-titulo">comparativa_cloud.exe <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Comparativa de proveedores</h2>
+              <div class="tarjetas">
+                <div class="tarjeta azul"><span class="codigo">AWS</span>
+                  <dl><dt>servicio</dt><dd>EC2 + VPC</dd><dt>costo mensual</dt><dd>USD — (calculadora oficial)</dd><dt>disponibilidad</dt><dd>—</dd></dl></div>
+                <div class="tarjeta"><span class="codigo">Proveedor 2</span>
+                  <dl><dt>servicio</dt><dd>equivalente</dd><dt>costo mensual</dt><dd>USD — (calculadora oficial)</dd><dt>disponibilidad</dt><dd>—</dd></dl></div>
+              </div>
+              <h3>selección justificada</h3>
+              <textarea style="width:100%" placeholder="Se elige… porque cumple RF-01, RNF-02…"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: NIST -->
+        <section class="modulo" id="nist">
+          <div class="ventana lila">
+            <div class="ventana-titulo">controles_nist.dll <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Controles de seguridad</h2>
+              <div class="tarjetas">
+                <div class="tarjeta"><span class="codigo">AC-6</span>
+                  <dl><dt>riesgo mitigado</dt><dd>privilegios excesivos</dd><dt>capa</dt><dd>identidad</dd><dt>requerimiento</dt><dd>RNF-01</dd></dl></div>
+                <div class="tarjeta azul"><span class="codigo">IA-2(1)</span>
+                  <dl><dt>riesgo mitigado</dt><dd>acceso admin sin MFA</dd><dt>capa</dt><dd>identidad</dd><dt>requerimiento</dt><dd>RNF-03</dd></dl></div>
+                <div class="tarjeta"><span class="codigo">SC-7</span>
+                  <dl><dt>riesgo mitigado</dt><dd>exposición de la BD</dd><dt>capa</dt><dd>red</dd><dt>requerimiento</dt><dd>RNF-01</dd></dl></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: BITÁCORA -->
+        <section class="modulo" id="bitacora">
+          <div class="ventana menta">
+            <div class="ventana-titulo">bitacora.log <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Bitácora de implementación</h2>
+              <ul class="linea-tiempo">
+                <li><div class="fecha">01/12 · administración</div>Creación de VPC-09 10.09.0.0/16 <span class="suave">· evidencia: captura_vpc.png</span></li>
+                <li><div class="fecha">02/12 · administración</div>Subred privada sin ruta a Internet <span class="suave">· evidencia: rutas.png</span></li>
+                <li><div class="fecha">03/12 · auditoría</div>auditd con reglas sobre sudo y sshd_config <span class="suave">· evidencia: auditd.png</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: VALIDACIÓN -->
+        <section class="modulo" id="validacion">
+          <div class="ventana">
+            <div class="ventana-titulo">validacion.exe <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Pruebas y cierre</h2>
+              <div class="tabla-scroll">
+                <table class="tabla-aero">
+                  <thead><tr><th>ID</th><th>Prueba</th><th>Esperado</th><th>Resultado</th><th>NIST</th></tr></thead>
+                  <tbody>
+                    <tr><td>P1</td><td>Acceso a la app (80/443)</td><td>operativa</td><td><span class="estado ok">aprobada</span></td><td>SC-7</td></tr>
+                    <tr><td>P2</td><td>nmap a bd-09</td><td>sin acceso</td><td><span class="estado ok">aprobada</span></td><td>SC-7</td></tr>
+                    <tr><td>P3</td><td>web → BD con usuario app</td><td>solo desde web-09</td><td><span class="estado ok">aprobada</span></td><td>AC-6</td></tr>
+                    <tr><td>P4</td><td>Salida a Internet desde bd-09</td><td>falla</td><td><span class="estado falla">hallazgo</span></td><td>SC-7</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO: DOCUMENTO -->
+        <section class="modulo" id="documento">
+          <div class="ventana rosa">
+            <div class="ventana-titulo">documento_tecnico.pdf <div class="controles"><span>─</span><span>□</span><span>×</span></div></div>
+            <div class="ventana-cuerpo">
+              <h2 class="seccion">Informe técnico</h2>
+              <div class="vista-pdf">
+                <div class="marca">INACAP · TI3062</div>
+                <h4>Proyecto Integrador de Seguridad en Infraestructura Cloud y Redes</h4>
+                <p>Taís Cruz · Lista N° 09</p>
+                <p class="suave" style="font-size:12px">generado: <span id="fecha-hoy"></span><br>ti3062-09.pages.dev · github.com/…/ti3062-09</p>
+              </div>
+              <div class="acciones">
+                <button class="btn-gel grande azul">✦ Generar PDF ✦</button>
+                <button class="btn-gel aqua">⇩ exportar JSON</button>
+                <button class="btn-gel">⇧ importar JSON</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ===== COLUMNA DERECHA ===== -->
+      <aside class="columna lateral">
+        <section class="ventana lila">
+          <div class="ventana-titulo">temas <div class="controles"><span>×</span></div></div>
+          <div class="ventana-cuerpo">
+            <div class="temas" id="temas">
+              <button class="tema-btn" data-tema="playa" style="background:linear-gradient(135deg,#ffb3d1,#8cc9f5,#8fe3d8)"><span>playa</span></button>
+              <button class="tema-btn" data-tema="brisa" style="background:linear-gradient(135deg,#f6c8de,#b3d7d3,#a2cae8,#e5d8ea)"><span>brisa</span></button>
+              <button class="tema-btn" data-tema="nube" style="background:linear-gradient(135deg,#ffe0f0,#a2d0ea,#e5d8ea)"><span>nube</span></button>
+              <button class="tema-btn" data-tema="agua" style="background:linear-gradient(135deg,#e9d5e0,#a7cfc7,#8fb4de)"><span>agua</span></button>
+              <button class="tema-btn" data-tema="musgo" style="background:linear-gradient(135deg,#fbebf8,#819b7e,#4b5b50)"><span>musgo</span></button>
+              <button class="tema-btn" data-tema="caramelo" style="background:linear-gradient(135deg,#fbeaf2,#a9cdef,#e6cdae,#8e7771)"><span>caramelo</span></button>
+            </div>
+          </div>
+        </section>
+        <section class="ventana lila">
+          <div class="ventana-titulo">reloj <div class="controles"><span>×</span></div></div>
+          <div class="ventana-cuerpo" style="text-align:center">
+            <div id="reloj" style="font-family:var(--f-retro);font-size:40px;color:var(--lila-osc);text-shadow:0 0 8px #fff">00:00</div>
+            <div class="pixel suave" id="fecha-lateral"></div>
+          </div>
+        </section>
+
+        <section class="ventana rosa">
+          <div class="ventana-titulo">checklist <div class="controles"><span>×</span></div></div>
+          <div class="ventana-cuerpo">
+            <ul class="lista-pixel">
+              <li>♡ hitos definidos</li>
+              <li>♡ tareas con responsable</li>
+              <li>♡ controles mapeados</li>
+              <li>♡ pruebas con evidencia</li>
+              <li>♡ respaldo verificado</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="ventana">
+          <div class="ventana-titulo">links <div class="controles"><span>×</span></div></div>
+          <div class="ventana-cuerpo">
+            <div class="botones-88">
+              <div class="b88 brillo">powered by<br>AWS</div>
+              <div class="b88 rosa">NIST<br>800-53</div>
+              <div class="b88 menta">código en<br>GitHub</div>
+              <div class="b88 lila">made with<br>♡ + css</div>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+    </div>
+
+    <!-- ===== PIE ===== -->
+    <footer class="pie">
+      <span>✧ Proyecto Integrador de Seguridad en Infraestructura Cloud y Redes</span>
+      <span>best viewed at 1024×768 ☁︎</span>
+    </footer>
+  </div>
+
+  <script src="js/ui.js"></script>
+</body>
+</html>
